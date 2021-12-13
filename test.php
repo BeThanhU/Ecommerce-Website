@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include_once('db/connect.php');
+	include_once('Process/db/connect.php');
 ?>
 
 <!DOCTYPE html>
@@ -10,9 +10,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title>Web bán hàng</title>
-		<link rel="stylesheet" href="./assets/css/base.css">
-		<link rel="stylesheet" href="./assets/css/main.css">
-		<link rel="stylesheet" href="./assets/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
+		<link rel="stylesheet" href="./Process/assets/css/base.css">
+		<link rel="stylesheet" href="./Process/assets/css/main.css">
+		<link rel="stylesheet" href="./Process/assets/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
@@ -20,10 +20,9 @@
 	</head>
 
 	<body>
-		<script src="./main.js"></script>
-		<script src="./change_info.js"></script>
-		<script src="./check_register.js"></script>
-
+		<script src="Process/javascript/main.js"></script>
+		<script src="Process/javascript/change_info.js"></script>
+		<script src="Process/javascript/check_register.js"></script>
 
 		<!-- BEM -->
 		<div class="app">
@@ -34,7 +33,7 @@
 				header('location: test.php');
 			}
 
-			include("include/topbar.php");
+			include("Client/include/topbar.php");
 
 			if(isset($_GET['quanly'])){
 				$quanly = $_GET['quanly'];
@@ -43,15 +42,15 @@
 			}
 
 			if($quanly == 'danhmuc') {
-				include("include/home-danhmuc-sp.php");
+				include("Client/include/home-danhmuc-sp.php");
 			}elseif ($quanly == 'chitietsp') {
-				include("include/chitietsp.php");
+				include("Client/include/chitietsp.php");
 			}elseif ($quanly == 'giohang') {
-				include("include/giohang.php");
+				include("Client/include/giohang.php");
 			}elseif($quanly == 'thongtin'){
-				include("include/thongtin_home.php");
+				include("Client/include/thongtin_home.php");
 			}else{
-				include("include/home-danhmuc-sp.php");
+				include("Client/include/home-danhmuc-sp.php");
 			}
 
 			if(isset($_SESSION['login'])){
@@ -133,7 +132,7 @@
 							<h3 class="auth-form__heading">Đăng nhập</h3>
 							<span onclick="switchModal(0)" class="auth-form__switch-btn">Đăng ký</span>
 						</div>
-						<form action="./login.php" method="POST">
+						<form action="Process/php/login.php" method="POST">
 							<div class="auth-form__form">
 								<div class="auth-form__group">
 									<input type="text" name="username_client" class="auth-form__input" placeholder="Tài khoản của bạn" required>
@@ -181,12 +180,27 @@
 
 		<?php 
 			if(isset($_GET['status']) && $_GET['status']=='login'){
-				echo '<script> activeModal(1) </script>';
+				if($_SESSION['login']!=null){
+					echo "<script> 
+							alert('Hãy đăng xuất trước khi thực hiện chức năng này!') 
+							window.location='test.php';
+						</script>";
+					header('location: ./test.php');
+				}else{
+					echo '<script> activeModal(1) </script>';
+				}
 			}elseif(isset($_GET['status']) && $_GET['status']=='register'){
-				echo '<script> activeModal(0) </script>';
+				if($_SESSION['login']!=null){
+					echo "<script> 
+							alert('Hãy đăng xuất trước khi thực hiện chức năng này!') 
+							window.location='test.php';
+						</script>";
+				}else{
+					echo '<script> activeModal(0) </script>';
+				}
 			}
 
-			include("include/footbar.php");
+			include("Client/include/footbar.php");
 		?>
 	</body>
 </html>
