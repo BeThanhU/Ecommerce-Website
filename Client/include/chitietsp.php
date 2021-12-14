@@ -1,7 +1,7 @@
 <?php 
 	
 	if(!isset($_SESSION['login'])){
-		echo "<script> alert('Vui lòng đăng nhập để thực hiện chức năng này'); window.location = './test.php?status=login'; </script>";
+		echo "<script> alert('Vui lòng đăng nhập để thực hiện chức năng này'); window.location = './index.php?status=login'; </script>";
 	}
 
 	if(isset($_GET['id'])){

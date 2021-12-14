@@ -41,15 +41,21 @@
 				$quanly = '';
 			}
 
-			if($quanly == 'khachhang') {
+			if(isset($_GET['id'])){
+				$id = $_GET['id'];
+			}else{
+				$id = '';
+			}
+
+			if($quanly=='danhmuc' && $id=='1') {
 				include("include/manage-khachhang.php");
-			}elseif ($quanly == 'diachi') {
+			}elseif ($quanly=='danhmuc' && $id=='2') {
 				include("include/manage-diachi.php");
-			}elseif ($quanly == 'hanghoa') {
+			}elseif ($quanly=='danhmuc' && $id=='3') {
 				include("include/manage-hanghoa.php");
-			}elseif($quanly == 'donhang'){
+			}elseif($quanly=='danhmuc' && $id=='4'){
 				include("include/manage-donhang.php");
-			}elseif($quanly == 'taikhoan'){
+			}elseif($quanly=='danhmuc' && $id=='5'){
 				include("include/manage-taikhoan.php");
 			}else{
 				include("include/manage-danhmuc.php");

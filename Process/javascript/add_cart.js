@@ -29,13 +29,13 @@ function add_product_cart(direct){
 			// alert(response);
 			if(response == "true"){
 				alert('Thêm sản phẩm vào giỏ hàng thành công!');
-				window.location = "./test.php?quanly=chitietsp&id=" + cart_Product_id;
+				window.location = "./index.php?quanly=chitietsp&id=" + cart_Product_id;
 			}else{
 				alert('Xảy ra lỗi trong quá trình thêm sản phẩm vào giỏ hàng. Vui lòng chọn thêm lại!');
 			}
 
 			if(direct == "true"){
-				window.location = "./test.php?quanly=giohang";
+				window.location = "./index.php?quanly=giohang";
 			}
 		}
 	}

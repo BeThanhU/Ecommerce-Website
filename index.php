@@ -30,7 +30,7 @@
 
 			if(isset($_GET['status']) && $_GET['status']=='logout'){
 				unset($_SESSION['login']);
-				header('location: test.php');
+				header('location: index.php');
 			}
 
 			include("Client/include/topbar.php");
@@ -183,9 +183,9 @@
 				if($_SESSION['login']!=null){
 					echo "<script> 
 							alert('Hãy đăng xuất trước khi thực hiện chức năng này!') 
-							window.location='test.php';
+							window.location='index.php';
 						</script>";
-					header('location: ./test.php');
+					header('location: ./index.php');
 				}else{
 					echo '<script> activeModal(1) </script>';
 				}
@@ -193,7 +193,7 @@
 				if($_SESSION['login']!=null){
 					echo "<script> 
 							alert('Hãy đăng xuất trước khi thực hiện chức năng này!') 
-							window.location='test.php';
+							window.location='index.php';
 						</script>";
 				}else{
 					echo '<script> activeModal(0) </script>';

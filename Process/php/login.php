@@ -13,19 +13,19 @@
             $_SESSION['login']=$username_client;
             echo "<script>
                     confirm('Đăng nhập thành công, chào mừng ".$_SESSION['login']."');
-                    window.location='../../test.php';
+                    window.location='../../index.php';
                 </script>";         
         }else{
             echo "<script>
                     confirm('Sai tài khoản hoặc mật khẩu');
-                    window.location='../../test.php?status=login';
+                    window.location='../../index.php?status=login';
                 </script>";  
         }     
     }elseif (isset($_POST['btn_logout'])){
         unset($_SESSION['login']);
         session_destroy();
-        header('location: ./test.php');
+        header('location: ./index.php');
     }else{
-        header('location: ./test.php');
+        header('location: ./index.php');
     }
 ?>

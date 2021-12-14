@@ -32,7 +32,7 @@ function change_user_info(){
 			// alert(response);
 			if(response == "true"){
 				alert('Thay đổi thông tin thành công!');
-				window.location = "./test.php?quanly=thongtin&id=1";
+				window.location = "./index.php?quanly=thongtin&id=1";
 			}else{
 				alert('Không thể thay đổi thông tin, vui lòng không nhập ký tự đặc biệt!');
 			}
@@ -83,7 +83,7 @@ function change_product_info(){
 			// alert(response);
 			if(response == "true"){
 				alert('Thay đổi thông tin thành công!');
-				window.location = "./Admin/trangquantri.php?quanly=hanghoa";
+				window.location = "./Admin/index.php?quanly=hanghoa";
 			}else{
 				alert('Không thể thay đổi thông tin, vui lòng liên hệ ban quản trị!');
 			}
@@ -114,7 +114,7 @@ function change_bill_status(ID, staffID){
 			// alert(response);
 			if(response == "true"){
 				alert('Cập nhật trạng thái thành công!');
-				window.location = "./Admin/trangquantri.php?quanly=donhang";
+				window.location = "./Admin/index.php?quanly=donhang";
 			}else{
 				alert('Không thể thay đổi thông tin, vui lòng liên hệ ban quản trị để được giúp đỡ!');
 			}
@@ -140,7 +140,7 @@ function remove_user_address(num){
 			// alert(response);
 			if(response == "true"){
 				alert('Xóa địa chỉ thành công!');
-				window.location = "./test.php?quanly=thongtin&id=2";
+				window.location = "./index.php?quanly=thongtin&id=2";
 			}else{
 				alert('Không thể xóa địa chỉ, vui lòng liên hệ ban quản trị để được xử lý');
 			}
@@ -209,7 +209,7 @@ function add_user_address(id){
 				// alert(response);
 				if(response == "true"){
 					alert('Thêm địa chỉ mới thành công!');
-					window.location = "./test.php?quanly=thongtin&id=2";
+					window.location = "./index.php?quanly=thongtin&id=2";
 				}else{
 					alert('Không thể thêm địa chỉ, vui lòng liên hệ ban quản trị để được xử lý');
 				}
@@ -238,7 +238,7 @@ function reset_user_password(userName){
 			// alert(response);
 			if(response != "false"){
 				alert('Reset pass thành công, mật khẩu mới của bạn là: ' + response);
-				window.location = "./Admin/trangquantri.php?quanly=khachhang";
+				window.location = "./Admin/index.php?quanly=khachhang";
 			}else{
 				alert('Không thể xóa địa chỉ, vui lòng liên hệ ban quản trị để được xử lý');
 			}
@@ -264,7 +264,7 @@ function reset_staff_password(staffName){
 			// alert(response);
 			if(response != "false"){
 				alert('Reset pass thành công, mật khẩu mới của bạn là: ' + response);
-				window.location = "./Admin/trangquantri.php?quanly=taikhoan";
+				window.location = "./Admin/index.php?quanly=taikhoan";
 			}else{
 				alert('Không thể xóa địa chỉ, vui lòng liên hệ ban quản trị để được xử lý');
 			}

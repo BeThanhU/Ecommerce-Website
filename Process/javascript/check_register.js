@@ -65,7 +65,7 @@ function check_regis_customer(){
 				var response = this.responseText;
 				if(response == "true"){
 					alert('Đăng ký thành công!');
-					window.location = "./test.php?status=login";
+					window.location = "./index.php?status=login";
 				}else{
 					alert('Không thể đăng ký do tên tài khoản đã tồn tại. Vui lòng chọn tên tài khoản khác và thử lại!');
 				}

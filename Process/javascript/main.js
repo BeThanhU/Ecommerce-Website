@@ -231,7 +231,7 @@ function renderChart(num1, num2, num3, num4, name1, name2, name3, name4){
 
 function searchProduct(){
 	var x = document.getElementById('search-bar').value;
-	var url = './test.php?search=' + x;
+	var url = './index.php?search=' + x;
 	window.location = url;
 }
 
@@ -243,10 +243,16 @@ function deactiveAddress(){
 
 function userLogOut(){
 	if(confirm("Bạn có thật sự muốn đăng xuất?"))
-		location.href='./test.php?status=logout';
+		location.href='./index.php?status=logout';
 }
 
 function staffLogOut(){
 	if(confirm("Bạn có thật sự muốn đăng xuất?"))
-		location.href='trangquantri.php?status=logout';
+		location.href='index.php?status=logout';
+}
+
+// active danh sach trang Admin:
+function activeAdminManageList(num){
+	var x = document.getElementsByClassName('side-nav-item');
+	x[num].classList.add('side-nav--active');
 }

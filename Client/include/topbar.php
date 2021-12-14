@@ -129,7 +129,7 @@
 		<!-- header with search -->
 		<div class="header-with-search">
 			<div class="header__logo">
-				<a href="test.php" class="header__logo-link">
+				<a href="index.php" class="header__logo-link">
 					<p class="side-nav-logo">
 						<span>BeU</span><img class="header__logo-img" src="./Process/assets/img/logo-ori-3-rmbg.jpg" alt="willfinchdesign">
 						Store
@@ -158,7 +158,7 @@
 								while($row_get_history = mysqli_fetch_array($sql_get_history)){
 									?>
 									<li class="header__search-history-item">
-										<a href="test.php?search=<?php echo $row_get_history['LichSu']; ?>">
+										<a href="index.php?search=<?php echo $row_get_history['LichSu']; ?>">
 											<?php echo $row_get_history['LichSu']; ?>
 										</a>
 									</li>

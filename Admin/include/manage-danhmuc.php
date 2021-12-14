@@ -6,102 +6,15 @@
 	$topsale_product_1 = mysqli_fetch_array(mysqli_query($con, 'select daban, TenHH from hanghoa order by daban desc limit 1 OFFSET 0'));
 	$topsale_product_2 = mysqli_fetch_array(mysqli_query($con, 'select daban, TenHH from hanghoa order by daban desc limit 1 OFFSET 1'));
 	$topsale_product_3 = mysqli_fetch_array(mysqli_query($con, 'select daban, TenHH from hanghoa order by daban desc limit 1 OFFSET 2'));
+
+	include("include/list-category.php");
 ?>
 
-<div id="side-nav" class="side-nav">
-	<p class="side-nav-logo">
-		<span>BeU</span><img class="header__logo-img" src="../Process/assets/img/logo-ori-1-rmbg.jpg" alt="">Store
-	</p>
-	<li class="side-nav-item side-nav--active">
-		<a href="trangquantri.php" class="side-nav-link">
-			<i class="fas fa-tachometer-alt side-nav-icon"></i>
-			&nbsp;
-			<span>Danh mục</span>
-		</a>
-	</li>
-	<li class="side-nav-item">
-		<a href="?quanly=khachhang" class="side-nav-link">
-			<i class="fas fa-users side-nav-icon"></i>
-			&nbsp;
-			<span>Quản lý khách hàng</span>
-		</a>
-	</li>
-	<li class="side-nav-item">
-		<a href="?quanly=diachi" class="side-nav-link">
-			<i class="fas fa-street-view side-nav-icon"></i>
-			&nbsp;
-			<span>Quản lý địa chỉ</span>
-		</a>
-	</li>
-	<li class="side-nav-item">
-		<a href="?quanly=hanghoa" class="side-nav-link">
-			<i class="fas fa-list side-nav-icon"></i>
-			&nbsp;
-			<span>Quản lý hàng hóa</span>
-		</a>
-	</li>
-	<li class="side-nav-item">
-		<a href="?quanly=donhang" class="side-nav-link">
-			<i class="fas fa-receipt side-nav-icon"></i>
-			&nbsp;
-			<span>Quản lý đơn hàng</span>
-		</a>
-	</li>
-	<li class="side-nav-item">
-		<a href="?quanly=taikhoan" class="side-nav-link">
-			<i class="fas fa-user side-nav-icon"></i>
-			&nbsp;
-			<span>Quản lý tài khoản</span>
-		</a>
-	</li>
-	<li class="side-nav-item">
-		<a onclick="staffLogOut()" class="side-nav-link">
-			<i class="fas fa-sign-out-alt side-nav-icon"></i>
-			&nbsp;
-			<span name="btn_staff_logout">LogOut</span>
-		</a>
-	</li>
-</div>
-
 <div id="manage-main-body">
-	<div class="manage-head">
-		<div class="grid__column-6">
-			<span class="manage-head-nav">&#9776; Dashboard</span>
-			<span class="manage-head-nav2">&#9776; Dashboard</span>
-		</div>
-
-		<div class="grid__column-6">
-			<div class="manage-head-profile">
-				<img src="../Process/assets/img/avt.png" alt="" class="manage-head-profile-img">
-				<?php
-					$sql_get_staff_account = mysqli_query($con, "select HoTenNV, ChucVu from nhanvien where TaiKhoanNV='".$_SESSION['stafflogin']."'");
-					$row_get_staff_account = mysqli_fetch_array($sql_get_staff_account);
-					if($row_get_staff_account){
-				?>
-					<p>
-						<?php echo $row_get_staff_account['HoTenNV'] ?>
-						<span>
-							<?php switch($row_get_staff_account['ChucVu']){
-								case 0:
-								echo 'Hệ Thống';
-								break;
-								case 1: 
-								echo 'Admin';
-								break;
-								default:
-								echo 'Nhân viên';
-								} 
-							?>
-						</span>
-					</p>
-				<?php
-					}
-				?>
-			</div>
-		</div>
-
-		<div class="manage-clear-fix"></div>
-	</div>
+	<?php
+		include("include/content-header.php");
+	?>
+	
 	<div class="statistic-wrap">
 		<?php
 			$sql_get_number_customer = mysqli_query($con, "select count(MSKH) from khachhang;");
@@ -115,36 +28,36 @@
 			$row_get_number_billprocessing = mysqli_fetch_array($sql_get_number_billprocessing);
 		?>
 		<div class="grid__column-3">
-			<div class="statistic-box">
-				<a href="?quanly=khachhang">
+			<a href="?quanly=khachhang">
+				<div class="statistic-box">
 					<p><?php echo $row_get_number_customer['count(MSKH)'] ?><br><span>Khách</span></p>
 					<i class="statistic-box-icon fas fa-users"></i>
-				</a>
-			</div>
+				</div>
+			</a>
 		</div>
 		<div class="grid__column-3">
-			<div class="statistic-box">
-				<a href="?quanly=hanghoa">
+			<a href="?quanly=hanghoa">
+				<div class="statistic-box">
 					<p><?php echo $row_get_number_product['count(MSHH)'] ?><br><span>Sản phẩm</span></p>
 					<i class="statistic-box-icon fas fa-boxes"></i>
-				</a>
-			</div>
+				</div>
+			</a>
 		</div>
 		<div class="grid__column-3">
-			<div class="statistic-box">
-				<a href="?quanly=donhang">
+			<a href="?quanly=donhang">
+				<div class="statistic-box">
 					<p><?php echo $row_get_number_billdone['count(SoDonDH)'] ?><br><span>Đơn đã bán</span></p>
 					<i class="statistic-box-icon fas fa-dolly-flatbed"></i>
-				</a>
-			</div>
+				</div>
+			</a>
 		</div>
 		<div class="grid__column-3">
-			<div class="statistic-box">
-				<a href="?quanly=donhang">
+			<a href="?quanly=donhang">
+				<div class="statistic-box">
 					<p><?php echo $row_get_number_billprocessing['count(SoDonDH)'] ?><br><span>Đơn chờ</span></p>
 					<i class="statistic-box-icon fas fa-receipt"></i>
-				</a>
-			</div>
+				</div>
+			</a>
 		</div>
 
 		<div class="manage-clear-fix"></div>

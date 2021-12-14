@@ -13,7 +13,7 @@
             $_SESSION['stafflogin']=$staffName_manage;
             echo "<script>
                     confirm('Đăng nhập thành công, chào mừng ".$_SESSION['stafflogin']."');
-                    window.location='../../Admin/trangquantri.php';
+                    window.location='../../Admin/index.php';
                 </script>";         
         }else{
             echo "<script>
@@ -29,6 +29,6 @@
                 </script>"; 
         header('location: login_admin.php');
     }else{
-        header('location: trangquantri.php');
+        header('location: index.php');
     }
 ?>

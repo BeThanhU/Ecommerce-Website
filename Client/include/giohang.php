@@ -1,7 +1,7 @@
 <?php
 	if(!isset($_SESSION['login'])){
 		echo "<script> alert('Bạn cần đăng nhập để sử dụng chức năng này'); </script>";
-		header('location: ./test.php');
+		header('location: ./index.php');
 	}else{
 		$sql_get_cart_list_item = mysqli_query($con, "select gh.MSHH, TenHinh, TenHangHoa, Gia, SoLuong, PhanLoai from hinhhanghoa h, giohang gh, khachhang kh where gh.TaiKhoanKH = kh.TaiKhoanKH and h.MSHH=gh.MSHH and kh.TaiKhoanKH = '".$_SESSION['login']."'");
 		$test_sql_get_cart_list = mysqli_query($con, "select MSHH from giohang where TaiKhoanKH = '".$_SESSION['login']."'");
@@ -19,7 +19,7 @@
 						if($test_row_get_cart_list['MSHH']==null){
 							echo "<script> 
 									alert('Hãy thêm ít nhất 1 món hàng để sử dụng chức năng này!') 
-									window.location='test.php';
+									window.location='index.php';
 								</script>";
 						}
 						while($row_get_cart_list_item = mysqli_fetch_array($sql_get_cart_list_item)){

@@ -33,7 +33,7 @@ function order_bill(){
 				var response = this.responseText;
 				if(response == "true"){
 					alert('Đặt hàng thành công, vui lòng kiểm tra lại trong tài khoản của tôi -> đơn hàng đang xử lý!');
-					window.location = "./test.php?";
+					window.location = "./index.php?";
 				}else{
 					alert('Không thể đặt hàng. Vui lòng liên hệ ban quản trị để được xử lý!');
 				}
